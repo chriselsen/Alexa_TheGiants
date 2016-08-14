@@ -1,0 +1,19 @@
+TheGiantsDateIntent if they are playing {date}
+TheGiantsDateIntent if there is a game {date}
+TheGiantsDateIntent is there a game {date}
+TheGiantsDateIntent are they playing {date}
+TheGiantsDateIntent where they are playing {date}
+TheGiantsDateIntent when they are playing {date}
+TheGiantsDateIntent at what time they are playing {date}
+TheGiantsDateIntent who they are playing {date}
+TheGiantsDateIntent against who they are playing {date}
+TheGiantsDateIntent against who they are playing {date}
+
+TheGiantsAtHomeIntent if they are playing at home {date}
+TheGiantsAtHomeIntent if there is a game at home {date}
+TheGiantsAtHomeIntent if there is a homegame {date}
+TheGiantsAtHomeIntent if there is game at AT and T park {date}
+TheGiantsAtHomeIntent if there is a game {date} at AT and T park
+TheGiantsAtHomeIntent is there a game at AT and T park {date}
+TheGiantsAtHomeIntent is there a game {date} at AT and T park
+TheGiantsAtHomeIntent are they playing at home {date}
