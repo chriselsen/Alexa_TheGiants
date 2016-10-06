@@ -961,6 +961,36 @@
       "location": "AT&T Park",
       "opponent": "Dodgers",
       "time": "12:05pm"
+    },
+    {
+      "date": "10/07/2016",
+      "location": "Wrigley Field",
+      "opponent": "Cubs",
+      "time": "6:15pm"
+    },
+    {
+      "date": "10/08/2016",
+      "location": "Wrigley Field",
+      "opponent": "Cubs",
+      "time": "5:08pm"
+    },
+    {
+      "date": "10/10/2016",
+      "location": "AT&T Park",
+      "opponent": "Cubs",
+      "time": "7:15pm"
+    },
+    {
+      "date": "10/11/2016",
+      "location": "AT&T Park",
+      "opponent": "Cubs",
+      "time": "7:15pm"
+    },
+    {
+      "date": "10/13/2016",
+      "location": "AT&T Park",
+      "opponent": "Cubs",
+      "time": "7:15pm"
     }
   ]
 }
