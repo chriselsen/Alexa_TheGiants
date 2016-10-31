@@ -1,4 +1,4 @@
-# BusTimes
+# BusTimes [![Build Status](https://travis-ci.org/chriselsen/Alexa_TheGiants.svg?branch=master)](https://travis-ci.org/chriselsen/Alexa_TheGiants)
 A simple AWS Lambda (http://aws.amazon.com/lambda) function that looks up if the San Francisco Giants are playing, based on an embedded calendar file.
 
 ## Setup
