@@ -1,4 +1,6 @@
 language: node_js
 node_js:
   - "4.3"
-script: nodejs src/index.js  
+before_script:
+  - yum install nodejs -y  
+script: ls src/index.js  
