@@ -1,6 +1,4 @@
 language: node_js
 node_js:
   - "4.3"
-before_script:
-  - apt-get install nodejs -y  
-script: ls src/index.js  
+script: node src/index.js  
