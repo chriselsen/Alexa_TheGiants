@@ -13,6 +13,8 @@ var TheGiants = function () {
     AlexaSkill.call(this, APP_ID);
 };
 
+process.env.TZ = 'America/Los_Angeles';
+
 // Extend AlexaSkill
 TheGiants.prototype = Object.create(AlexaSkill.prototype);
 TheGiants.prototype.constructor = TheGiants;
@@ -112,8 +114,7 @@ TheGiants.prototype.intentHandlers = {
 };
 
 function isThereGame(gameDate) {
-	var requestedDate = new Date(gameDate);
-	var searchDate = ("0" + (requestedDate.getMonth() + 1)).slice(-2) + "/" + ("0" + requestedDate.getDate()).slice(-2) + "/" + requestedDate.getFullYear();
+	var searchDate = moment(gameDate).format("MM/DD/YYYY");
 	var fs = require('fs');
 	var importedJSON = JSON.parse(fs.readFileSync('giants_schedule.json', 'utf8'));
 
