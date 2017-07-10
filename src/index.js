@@ -40,29 +40,31 @@ TheGiants.prototype.intentHandlers = {
     "TheGiantsDateIntent": function (intent, session, response) {
 		var date = new Date();
 		var today = (date.getFullYear() + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2));
-		if (intent.slots.date.value) { var intentDate = intent.slots.date.value } else { var intentDate = today } 
+		var intentDate = today;
+		var responseDate = "on " + intentDate;
+		
+		if (intent.slots.date.value) { intentDate = intent.slots.date.value }  
 		if (moment(intentDate, "YYYY-MM-DD", true).isValid()) { 
 			var game = isThereGame(intentDate);
 			var dateDifference = (moment(intentDate).diff(moment(today), 'days'));
 			switch (dateDifference) {
 				case 0:
-					var responseDate = "today";
+					responseDate = "today";
 					break;
 				case 1:
-					var responseDate = "tomorrow";
+					responseDate = "tomorrow";
 					break;
 				case 2:
 				case 3:
 				case 4:
 				case 5:
 				case 6:
-					var responseDate = "on " + moment(intentDate).format("dddd");
+					responseDate = "on " + moment(intentDate).format("dddd");
 					break;
 				default:
-					var responseDate = "on " + intentDate;
 			}
 			
-			if (game[0]==''){
+			if (game[0]===''){
 				response.tell("There is no Giants game " + responseDate);
 			} else {
 				response.tell("The Giants are playing the " + game[1] + " at " + game[0] + " at " + game[2] + " " + responseDate);
@@ -74,28 +76,30 @@ TheGiants.prototype.intentHandlers = {
    "TheGiantsAtHomeIntent": function (intent, session, response) {
 		var date = new Date();
 		var today = (date.getFullYear() + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2));
-		if (intent.slots.date.value) { var intentDate = intent.slots.date.value } else { var intentDate = today } 
+		var intentDate = today;
+		var responseDate = "on " + intentDate;
+		
+		if (intent.slots.date.value) { intentDate = intent.slots.date.value }  
 		if (moment(intentDate, "YYYY-MM-DD", true).isValid()) { 
 			var game = isThereGame(intentDate);
 			var dateDifference = (moment(intentDate).diff(moment(today), 'days'));
 			switch (dateDifference) {
 				case 0:
-					var responseDate = "today";
+					responseDate = "today";
 					break;
 				case 1:
-					var responseDate = "tomorrow";
+					responseDate = "tomorrow";
 					break;
 				case 2:
 				case 3:
 				case 4:
 				case 5:
 				case 6:
-					var responseDate = "on " + moment(intentDate).format("dddd");
+					responseDate = "on " + moment(intentDate).format("dddd");
 					break;
 				default:
-					var responseDate = "on " + intentDate;
 			}
-			if (game[0]==''){
+			if (game[0]===''){
 				response.tell("No, there is no Giants game " + responseDate);
 			} else {
 				if (game[3]) {
@@ -117,27 +121,27 @@ function isThereGame(gameDate) {
 	var searchDate = moment(gameDate).format("MM/DD/YYYY");
 	var fs = require('fs');
 	var importedJSON = JSON.parse(fs.readFileSync('giants_schedule.json', 'utf8'));
+    var gameLocation = '';
+	var gameOpponent = '';
+	var gameTime = '';
+	var gameHome = '';
+
 
 	var arrayFound = importedJSON.games.filter(function(item) {
 			return item.date == searchDate;
 	});
 	if (arrayFound[0]) {
-		var gameLocation = arrayFound[0].location;
-		var gameOpponent = arrayFound[0].opponent;
-		var gameTime = arrayFound[0].time;
-		if (gameLocation=="AT&T Park"){
-			var gameHome = true;
+		gameLocation = arrayFound[0].location;
+		gameOpponent = arrayFound[0].opponent;
+		gameTime = arrayFound[0].time;
+		if (gameLocation.startsWith("AT&T Park")){
+			gameHome = true;
 		} else {
-			var gameHome = false;
+			gameHome = false;
 		}
-	} else { 
-		var gameLocation = '';
-		var gameOpponent = '';
-		var gameTime = '';
-		var gameHome = '';
 	} 
 		
-	return [gameLocation, gameOpponent, gameTime, gameHome]
+	return [gameLocation, gameOpponent, gameTime, gameHome];
 } 
 
 // Create the handler that responds to the Alexa Request.
