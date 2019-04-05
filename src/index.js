@@ -134,7 +134,7 @@ function isThereGame(gameDate) {
 		gameLocation = arrayFound[0].location;
 		gameOpponent = arrayFound[0].opponent;
 		gameTime = arrayFound[0].time;
-		if (gameLocation.startsWith("AT&T Park")){
+		if (gameLocation.startsWith("Oracle Park")){
 			gameHome = true;
 		} else {
 			gameHome = false;
